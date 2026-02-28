@@ -1,27 +1,114 @@
-import { useContext } from "react"
-import { CartContext } from "../context/CartContext"
+import { useCart } from "../context/CartContext"
+import { useWishlist } from "../context/WishlistContext"
+import { ShoppingCart, Heart } from "lucide-react"
+import { Link, useSearchParams } from "react-router-dom"
+import { motion } from "framer-motion"
 
-function ProductCard({ name, price, image }: any) {
+export interface ProductCardProps {
+  id: string | number;
+  name: string;
+  price: number;
+  image: string;
+  badge?: string;
+}
 
-  const { addToCart } = useContext(CartContext)
+function ProductCard({ id, name, price, image, badge }: ProductCardProps) {
+  const { addToCart } = useCart()
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist()
+  const [searchParams] = useSearchParams()
+  const searchQuery = searchParams.get("search")?.toLowerCase() || ""
+
+  const inWishlist = isInWishlist(id)
+
+  const toggleWishlist = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (inWishlist) {
+      removeFromWishlist(id)
+    } else {
+      addToWishlist({ id, name, price, image })
+    }
+  }
+
+  // Highlight logic for search matching
+  const highlightMatch = (text: string, query: string) => {
+    if (!query) return text;
+    const parts = text.split(new RegExp(`(${query})`, 'gi'));
+    return parts.map((part, index) =>
+      part.toLowerCase() === query.toLowerCase() ? (
+        <span key={index} className="bg-yellow-200 text-slate-900 rounded px-1">{part}</span>
+      ) : part
+    )
+  }
 
   return (
-    <div className="bg-white shadow rounded-lg p-4">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.3 }}
+      className="group bg-white dark:bg-slate-800 rounded-xl shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 flex flex-col h-full overflow-hidden border border-gray-100 dark:border-slate-700 relative"
+    >
 
-      <img src={image} className="rounded mb-4"/>
+      {/* Discount Badge */}
+      {badge && (
+        <span className="absolute top-3 left-3 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full z-20 pointer-events-none shadow-sm uppercase tracking-wider">
+          {badge}
+        </span>
+      )}
 
-      <h2 className="font-semibold">{name}</h2>
-
-      <p className="mb-3">₹{price}</p>
-
-      <button
-        onClick={() => addToCart({ name, price, image })}
-        className="bg-black text-white w-full py-2 rounded"
+      {/* Wishlist Heart */}
+      <motion.button
+        whileTap={{ scale: 0.8 }}
+        onClick={toggleWishlist}
+        className="absolute top-3 right-3 z-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm hover:bg-white dark:hover:bg-slate-900 p-2 text-rose-500 rounded-full shadow-sm hover:shadow-md transition-all"
       >
-        Add to Cart
-      </button>
+        <Heart size={20} className={inWishlist ? "fill-rose-500" : ""} />
+      </motion.button>
 
-    </div>
+      <Link to={`/product/${id}`} className="flex flex-col flex-1 cursor-pointer relative z-10">
+        <div className="overflow-hidden relative h-56 w-full bg-gray-50 dark:bg-slate-700 flex items-center justify-center p-4">
+          <img
+            src={image}
+            alt={name}
+            className="object-contain h-full w-full group-hover:scale-110 transition-transform duration-500 origin-center mix-blend-multiply dark:mix-blend-normal"
+          />
+        </div>
+
+        <div className="p-5 pb-0 flex flex-col flex-1">
+          <p className="text-sm tracking-wide text-orange-500 font-medium mb-1 uppercase">Top Rated</p>
+          <h2 className="font-bold text-gray-800 dark:text-white text-lg mb-2 line-clamp-2 leading-snug group-hover:text-orange-500 transition-colors">
+            {highlightMatch(name, searchQuery)}
+          </h2>
+
+          {/* Rating Stars Dummy */}
+          <div className="flex text-yellow-400 text-sm mb-2">
+            ★★★★☆ <span className="text-gray-400 dark:text-slate-400 ml-2 text-xs">(128)</span>
+          </div>
+
+          <div className="flex items-baseline gap-2 mb-4">
+            <span className="text-2xl font-bold text-slate-900 dark:text-white">₹{price}</span>
+            <span className="text-sm line-through text-gray-400 dark:text-slate-500">₹{Math.round(price * 1.2)}</span>
+          </div>
+        </div>
+      </Link>
+
+      <div className="p-5 pt-0 mt-auto z-20 relative">
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            addToCart({ id, name, price, image });
+          }}
+          className="w-full bg-slate-900 dark:bg-emerald-600 hover:bg-orange-500 dark:hover:bg-emerald-500 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors duration-300 shadow-md relative"
+        >
+          <ShoppingCart size={18} /> Add to Cart
+        </motion.button>
+      </div>
+
+    </motion.div>
   )
 }
 

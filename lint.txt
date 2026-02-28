@@ -1,0 +1,11 @@
+[0m[0m
+[0m[4mE:\shopping\shopping-website\src\context\ThemeContext.tsx[24m[0m
+[0m   [2m9:14[22m  [31merror[39m  Fast refresh only works when a file only exports components. Move your React context(s) to a separate file                      [2mreact-refresh/only-export-components[22m[0m
+[0m  [2m42:14[22m  [31merror[39m  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  [2mreact-refresh/only-export-components[22m[0m
+[0m[0m
+[0m[4mE:\shopping\shopping-website\src\context\WishlistContext.tsx[24m[0m
+[0m  [2m18:14[22m  [31merror[39m  Fast refresh only works when a file only exports components. Move your React context(s) to a separate file                      [2mreact-refresh/only-export-components[22m[0m
+[0m  [2m58:14[22m  [31merror[39m  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  [2mreact-refresh/only-export-components[22m[0m
+[0m[0m
+[0m[31m[1m✖ 4 problems (4 errors, 0 warnings)[22m[39m[0m
+[0m[31m[1m[22m[39m[0m
