@@ -1,0 +1,1362 @@
+[
+    {
+        "id": "1",
+        "name": "Premium Men's Shirt Edition 1",
+        "price": 2180,
+        "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c",
+        "category": "shirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality shirts designed for everyday comfort and modern style. Edition 1 brings a unique touch to your wardrobe.",
+        "rating": 4.3,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "Best Seller"
+    },
+    {
+        "id": "2",
+        "name": "Premium Men's Shirt Edition 2",
+        "price": 1467,
+        "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c",
+        "category": "shirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality shirts designed for everyday comfort and modern style. Edition 2 brings a unique touch to your wardrobe.",
+        "rating": 3.8,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "New"
+    },
+    {
+        "id": "3",
+        "name": "Premium Men's Shirt Edition 3",
+        "price": 1915,
+        "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c",
+        "category": "shirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality shirts designed for everyday comfort and modern style. Edition 3 brings a unique touch to your wardrobe.",
+        "rating": 5,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "New"
+    },
+    {
+        "id": "4",
+        "name": "Premium Men's Shirt Edition 4",
+        "price": 542,
+        "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c",
+        "category": "shirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality shirts designed for everyday comfort and modern style. Edition 4 brings a unique touch to your wardrobe.",
+        "rating": 4,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "5",
+        "name": "Premium Men's Shirt Edition 5",
+        "price": 1130,
+        "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c",
+        "category": "shirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality shirts designed for everyday comfort and modern style. Edition 5 brings a unique touch to your wardrobe.",
+        "rating": 4.8,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "6",
+        "name": "Premium Men's Shirt Edition 6",
+        "price": 1106,
+        "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c",
+        "category": "shirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality shirts designed for everyday comfort and modern style. Edition 6 brings a unique touch to your wardrobe.",
+        "rating": 4.3,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "New"
+    },
+    {
+        "id": "7",
+        "name": "Premium Men's Shirt Edition 7",
+        "price": 1815,
+        "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c",
+        "category": "shirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality shirts designed for everyday comfort and modern style. Edition 7 brings a unique touch to your wardrobe.",
+        "rating": 3.7,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "Best Seller"
+    },
+    {
+        "id": "8",
+        "name": "Premium Men's Shirt Edition 8",
+        "price": 1533,
+        "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c",
+        "category": "shirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality shirts designed for everyday comfort and modern style. Edition 8 brings a unique touch to your wardrobe.",
+        "rating": 4.8,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "9",
+        "name": "Premium Men's Shirt Edition 9",
+        "price": 920,
+        "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c",
+        "category": "shirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality shirts designed for everyday comfort and modern style. Edition 9 brings a unique touch to your wardrobe.",
+        "rating": 4.6,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "Best Seller"
+    },
+    {
+        "id": "10",
+        "name": "Premium Men's Shirt Edition 10",
+        "price": 1482,
+        "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c",
+        "category": "shirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality shirts designed for everyday comfort and modern style. Edition 10 brings a unique touch to your wardrobe.",
+        "rating": 3.7,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "11",
+        "name": "Premium Men's Shirt Edition 11",
+        "price": 1165,
+        "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c",
+        "category": "shirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality shirts designed for everyday comfort and modern style. Edition 11 brings a unique touch to your wardrobe.",
+        "rating": 4.7,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "12",
+        "name": "Premium Men's Shirt Edition 12",
+        "price": 1856,
+        "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c",
+        "category": "shirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality shirts designed for everyday comfort and modern style. Edition 12 brings a unique touch to your wardrobe.",
+        "rating": 4.6,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "Sale"
+    },
+    {
+        "id": "13",
+        "name": "Premium Men's Shirt Edition 13",
+        "price": 2498,
+        "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c",
+        "category": "shirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality shirts designed for everyday comfort and modern style. Edition 13 brings a unique touch to your wardrobe.",
+        "rating": 4.4,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "Sale"
+    },
+    {
+        "id": "14",
+        "name": "Premium Men's Shirt Edition 14",
+        "price": 887,
+        "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c",
+        "category": "shirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality shirts designed for everyday comfort and modern style. Edition 14 brings a unique touch to your wardrobe.",
+        "rating": 4.6,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "New"
+    },
+    {
+        "id": "15",
+        "name": "Premium Men's Shirt Edition 15",
+        "price": 956,
+        "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c",
+        "category": "shirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality shirts designed for everyday comfort and modern style. Edition 15 brings a unique touch to your wardrobe.",
+        "rating": 4.2,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "16",
+        "name": "Premium Men's Shirt Edition 16",
+        "price": 1345,
+        "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c",
+        "category": "shirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality shirts designed for everyday comfort and modern style. Edition 16 brings a unique touch to your wardrobe.",
+        "rating": 3.9,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "17",
+        "name": "Premium Men's Shirt Edition 17",
+        "price": 1614,
+        "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c",
+        "category": "shirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality shirts designed for everyday comfort and modern style. Edition 17 brings a unique touch to your wardrobe.",
+        "rating": 4.4,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "Best Seller"
+    },
+    {
+        "id": "18",
+        "name": "Premium Men's Shirt Edition 18",
+        "price": 1547,
+        "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c",
+        "category": "shirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality shirts designed for everyday comfort and modern style. Edition 18 brings a unique touch to your wardrobe.",
+        "rating": 3.7,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "19",
+        "name": "Premium Men's Shirt Edition 19",
+        "price": 1777,
+        "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c",
+        "category": "shirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality shirts designed for everyday comfort and modern style. Edition 19 brings a unique touch to your wardrobe.",
+        "rating": 3.9,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "20",
+        "name": "Premium Men's Shirt Edition 20",
+        "price": 2024,
+        "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c",
+        "category": "shirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality shirts designed for everyday comfort and modern style. Edition 20 brings a unique touch to your wardrobe.",
+        "rating": 4.4,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "New"
+    },
+    {
+        "id": "21",
+        "name": "Classic Cotton T-Shirt Edition 1",
+        "price": 2170,
+        "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+        "category": "tshirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality tshirts designed for everyday comfort and modern style. Edition 1 brings a unique touch to your wardrobe.",
+        "rating": 4.8,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "Best Seller"
+    },
+    {
+        "id": "22",
+        "name": "Classic Cotton T-Shirt Edition 2",
+        "price": 1188,
+        "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+        "category": "tshirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality tshirts designed for everyday comfort and modern style. Edition 2 brings a unique touch to your wardrobe.",
+        "rating": 4.5,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "23",
+        "name": "Classic Cotton T-Shirt Edition 3",
+        "price": 1655,
+        "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+        "category": "tshirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality tshirts designed for everyday comfort and modern style. Edition 3 brings a unique touch to your wardrobe.",
+        "rating": 4.3,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "24",
+        "name": "Classic Cotton T-Shirt Edition 4",
+        "price": 867,
+        "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+        "category": "tshirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality tshirts designed for everyday comfort and modern style. Edition 4 brings a unique touch to your wardrobe.",
+        "rating": 5,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "Best Seller"
+    },
+    {
+        "id": "25",
+        "name": "Classic Cotton T-Shirt Edition 5",
+        "price": 2122,
+        "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+        "category": "tshirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality tshirts designed for everyday comfort and modern style. Edition 5 brings a unique touch to your wardrobe.",
+        "rating": 3.6,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "26",
+        "name": "Classic Cotton T-Shirt Edition 6",
+        "price": 1104,
+        "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+        "category": "tshirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality tshirts designed for everyday comfort and modern style. Edition 6 brings a unique touch to your wardrobe.",
+        "rating": 4.5,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "27",
+        "name": "Classic Cotton T-Shirt Edition 7",
+        "price": 1095,
+        "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+        "category": "tshirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality tshirts designed for everyday comfort and modern style. Edition 7 brings a unique touch to your wardrobe.",
+        "rating": 4.4,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "28",
+        "name": "Classic Cotton T-Shirt Edition 8",
+        "price": 894,
+        "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+        "category": "tshirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality tshirts designed for everyday comfort and modern style. Edition 8 brings a unique touch to your wardrobe.",
+        "rating": 3.6,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "29",
+        "name": "Classic Cotton T-Shirt Edition 9",
+        "price": 2177,
+        "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+        "category": "tshirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality tshirts designed for everyday comfort and modern style. Edition 9 brings a unique touch to your wardrobe.",
+        "rating": 4.8,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "Sale"
+    },
+    {
+        "id": "30",
+        "name": "Classic Cotton T-Shirt Edition 10",
+        "price": 1167,
+        "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+        "category": "tshirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality tshirts designed for everyday comfort and modern style. Edition 10 brings a unique touch to your wardrobe.",
+        "rating": 4.7,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "Sale"
+    },
+    {
+        "id": "31",
+        "name": "Classic Cotton T-Shirt Edition 11",
+        "price": 1917,
+        "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+        "category": "tshirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality tshirts designed for everyday comfort and modern style. Edition 11 brings a unique touch to your wardrobe.",
+        "rating": 4.8,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "Sale"
+    },
+    {
+        "id": "32",
+        "name": "Classic Cotton T-Shirt Edition 12",
+        "price": 2318,
+        "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+        "category": "tshirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality tshirts designed for everyday comfort and modern style. Edition 12 brings a unique touch to your wardrobe.",
+        "rating": 3.5,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "33",
+        "name": "Classic Cotton T-Shirt Edition 13",
+        "price": 1789,
+        "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+        "category": "tshirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality tshirts designed for everyday comfort and modern style. Edition 13 brings a unique touch to your wardrobe.",
+        "rating": 3.8,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "Best Seller"
+    },
+    {
+        "id": "34",
+        "name": "Classic Cotton T-Shirt Edition 14",
+        "price": 2409,
+        "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+        "category": "tshirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality tshirts designed for everyday comfort and modern style. Edition 14 brings a unique touch to your wardrobe.",
+        "rating": 4.8,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "Sale"
+    },
+    {
+        "id": "35",
+        "name": "Classic Cotton T-Shirt Edition 15",
+        "price": 1892,
+        "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+        "category": "tshirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality tshirts designed for everyday comfort and modern style. Edition 15 brings a unique touch to your wardrobe.",
+        "rating": 4.8,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "36",
+        "name": "Classic Cotton T-Shirt Edition 16",
+        "price": 522,
+        "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+        "category": "tshirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality tshirts designed for everyday comfort and modern style. Edition 16 brings a unique touch to your wardrobe.",
+        "rating": 4.2,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "37",
+        "name": "Classic Cotton T-Shirt Edition 17",
+        "price": 2067,
+        "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+        "category": "tshirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality tshirts designed for everyday comfort and modern style. Edition 17 brings a unique touch to your wardrobe.",
+        "rating": 4.7,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "Sale"
+    },
+    {
+        "id": "38",
+        "name": "Classic Cotton T-Shirt Edition 18",
+        "price": 1557,
+        "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+        "category": "tshirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality tshirts designed for everyday comfort and modern style. Edition 18 brings a unique touch to your wardrobe.",
+        "rating": 3.9,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "39",
+        "name": "Classic Cotton T-Shirt Edition 19",
+        "price": 1292,
+        "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+        "category": "tshirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality tshirts designed for everyday comfort and modern style. Edition 19 brings a unique touch to your wardrobe.",
+        "rating": 3.9,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "40",
+        "name": "Classic Cotton T-Shirt Edition 20",
+        "price": 1753,
+        "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",
+        "category": "tshirts",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality tshirts designed for everyday comfort and modern style. Edition 20 brings a unique touch to your wardrobe.",
+        "rating": 4.7,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "41",
+        "name": "Modern Fit Jeans Edition 1",
+        "price": 1824,
+        "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
+        "category": "jeans",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jeans designed for everyday comfort and modern style. Edition 1 brings a unique touch to your wardrobe.",
+        "rating": 3.9,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "42",
+        "name": "Modern Fit Jeans Edition 2",
+        "price": 1706,
+        "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
+        "category": "jeans",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jeans designed for everyday comfort and modern style. Edition 2 brings a unique touch to your wardrobe.",
+        "rating": 3.7,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "43",
+        "name": "Modern Fit Jeans Edition 3",
+        "price": 1422,
+        "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
+        "category": "jeans",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jeans designed for everyday comfort and modern style. Edition 3 brings a unique touch to your wardrobe.",
+        "rating": 4,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "44",
+        "name": "Modern Fit Jeans Edition 4",
+        "price": 1673,
+        "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
+        "category": "jeans",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jeans designed for everyday comfort and modern style. Edition 4 brings a unique touch to your wardrobe.",
+        "rating": 4.1,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "45",
+        "name": "Modern Fit Jeans Edition 5",
+        "price": 1815,
+        "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
+        "category": "jeans",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jeans designed for everyday comfort and modern style. Edition 5 brings a unique touch to your wardrobe.",
+        "rating": 4.7,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "New"
+    },
+    {
+        "id": "46",
+        "name": "Modern Fit Jeans Edition 6",
+        "price": 719,
+        "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
+        "category": "jeans",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jeans designed for everyday comfort and modern style. Edition 6 brings a unique touch to your wardrobe.",
+        "rating": 4,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "47",
+        "name": "Modern Fit Jeans Edition 7",
+        "price": 2088,
+        "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
+        "category": "jeans",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jeans designed for everyday comfort and modern style. Edition 7 brings a unique touch to your wardrobe.",
+        "rating": 4.3,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "48",
+        "name": "Modern Fit Jeans Edition 8",
+        "price": 1277,
+        "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
+        "category": "jeans",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jeans designed for everyday comfort and modern style. Edition 8 brings a unique touch to your wardrobe.",
+        "rating": 3.8,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "49",
+        "name": "Modern Fit Jeans Edition 9",
+        "price": 1641,
+        "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
+        "category": "jeans",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jeans designed for everyday comfort and modern style. Edition 9 brings a unique touch to your wardrobe.",
+        "rating": 4.3,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "50",
+        "name": "Modern Fit Jeans Edition 10",
+        "price": 604,
+        "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
+        "category": "jeans",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jeans designed for everyday comfort and modern style. Edition 10 brings a unique touch to your wardrobe.",
+        "rating": 4.6,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "51",
+        "name": "Modern Fit Jeans Edition 11",
+        "price": 1298,
+        "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
+        "category": "jeans",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jeans designed for everyday comfort and modern style. Edition 11 brings a unique touch to your wardrobe.",
+        "rating": 3.6,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "52",
+        "name": "Modern Fit Jeans Edition 12",
+        "price": 1273,
+        "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
+        "category": "jeans",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jeans designed for everyday comfort and modern style. Edition 12 brings a unique touch to your wardrobe.",
+        "rating": 4.7,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "53",
+        "name": "Modern Fit Jeans Edition 13",
+        "price": 1751,
+        "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
+        "category": "jeans",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jeans designed for everyday comfort and modern style. Edition 13 brings a unique touch to your wardrobe.",
+        "rating": 4.9,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "Sale"
+    },
+    {
+        "id": "54",
+        "name": "Modern Fit Jeans Edition 14",
+        "price": 1183,
+        "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
+        "category": "jeans",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jeans designed for everyday comfort and modern style. Edition 14 brings a unique touch to your wardrobe.",
+        "rating": 4.4,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "Best Seller"
+    },
+    {
+        "id": "55",
+        "name": "Modern Fit Jeans Edition 15",
+        "price": 2346,
+        "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
+        "category": "jeans",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jeans designed for everyday comfort and modern style. Edition 15 brings a unique touch to your wardrobe.",
+        "rating": 4.4,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "56",
+        "name": "Modern Fit Jeans Edition 16",
+        "price": 1224,
+        "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
+        "category": "jeans",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jeans designed for everyday comfort and modern style. Edition 16 brings a unique touch to your wardrobe.",
+        "rating": 4.8,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "57",
+        "name": "Modern Fit Jeans Edition 17",
+        "price": 1126,
+        "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
+        "category": "jeans",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jeans designed for everyday comfort and modern style. Edition 17 brings a unique touch to your wardrobe.",
+        "rating": 4.3,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "58",
+        "name": "Modern Fit Jeans Edition 18",
+        "price": 725,
+        "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
+        "category": "jeans",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jeans designed for everyday comfort and modern style. Edition 18 brings a unique touch to your wardrobe.",
+        "rating": 4.4,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "New"
+    },
+    {
+        "id": "59",
+        "name": "Modern Fit Jeans Edition 19",
+        "price": 1830,
+        "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
+        "category": "jeans",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jeans designed for everyday comfort and modern style. Edition 19 brings a unique touch to your wardrobe.",
+        "rating": 4.7,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "60",
+        "name": "Modern Fit Jeans Edition 20",
+        "price": 1197,
+        "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246",
+        "category": "jeans",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jeans designed for everyday comfort and modern style. Edition 20 brings a unique touch to your wardrobe.",
+        "rating": 3.9,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "Best Seller"
+    },
+    {
+        "id": "61",
+        "name": "Stylish Men's Jacket Edition 1",
+        "price": 1197,
+        "image": "https://images.unsplash.com/photo-1582552938357-32b906df40cb",
+        "category": "jackets",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jackets designed for everyday comfort and modern style. Edition 1 brings a unique touch to your wardrobe.",
+        "rating": 4.3,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "Sale"
+    },
+    {
+        "id": "62",
+        "name": "Stylish Men's Jacket Edition 2",
+        "price": 757,
+        "image": "https://images.unsplash.com/photo-1582552938357-32b906df40cb",
+        "category": "jackets",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jackets designed for everyday comfort and modern style. Edition 2 brings a unique touch to your wardrobe.",
+        "rating": 4.8,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "Best Seller"
+    },
+    {
+        "id": "63",
+        "name": "Stylish Men's Jacket Edition 3",
+        "price": 1028,
+        "image": "https://images.unsplash.com/photo-1582552938357-32b906df40cb",
+        "category": "jackets",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jackets designed for everyday comfort and modern style. Edition 3 brings a unique touch to your wardrobe.",
+        "rating": 5,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "New"
+    },
+    {
+        "id": "64",
+        "name": "Stylish Men's Jacket Edition 4",
+        "price": 1689,
+        "image": "https://images.unsplash.com/photo-1582552938357-32b906df40cb",
+        "category": "jackets",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jackets designed for everyday comfort and modern style. Edition 4 brings a unique touch to your wardrobe.",
+        "rating": 3.9,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "New"
+    },
+    {
+        "id": "65",
+        "name": "Stylish Men's Jacket Edition 5",
+        "price": 1684,
+        "image": "https://images.unsplash.com/photo-1582552938357-32b906df40cb",
+        "category": "jackets",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jackets designed for everyday comfort and modern style. Edition 5 brings a unique touch to your wardrobe.",
+        "rating": 3.5,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "66",
+        "name": "Stylish Men's Jacket Edition 6",
+        "price": 1266,
+        "image": "https://images.unsplash.com/photo-1582552938357-32b906df40cb",
+        "category": "jackets",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jackets designed for everyday comfort and modern style. Edition 6 brings a unique touch to your wardrobe.",
+        "rating": 4,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "67",
+        "name": "Stylish Men's Jacket Edition 7",
+        "price": 659,
+        "image": "https://images.unsplash.com/photo-1582552938357-32b906df40cb",
+        "category": "jackets",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jackets designed for everyday comfort and modern style. Edition 7 brings a unique touch to your wardrobe.",
+        "rating": 4.3,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "New"
+    },
+    {
+        "id": "68",
+        "name": "Stylish Men's Jacket Edition 8",
+        "price": 813,
+        "image": "https://images.unsplash.com/photo-1582552938357-32b906df40cb",
+        "category": "jackets",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jackets designed for everyday comfort and modern style. Edition 8 brings a unique touch to your wardrobe.",
+        "rating": 4.6,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "69",
+        "name": "Stylish Men's Jacket Edition 9",
+        "price": 1531,
+        "image": "https://images.unsplash.com/photo-1582552938357-32b906df40cb",
+        "category": "jackets",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jackets designed for everyday comfort and modern style. Edition 9 brings a unique touch to your wardrobe.",
+        "rating": 3.7,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "70",
+        "name": "Stylish Men's Jacket Edition 10",
+        "price": 1371,
+        "image": "https://images.unsplash.com/photo-1582552938357-32b906df40cb",
+        "category": "jackets",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jackets designed for everyday comfort and modern style. Edition 10 brings a unique touch to your wardrobe.",
+        "rating": 4.2,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "New"
+    },
+    {
+        "id": "71",
+        "name": "Stylish Men's Jacket Edition 11",
+        "price": 2062,
+        "image": "https://images.unsplash.com/photo-1582552938357-32b906df40cb",
+        "category": "jackets",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jackets designed for everyday comfort and modern style. Edition 11 brings a unique touch to your wardrobe.",
+        "rating": 4.6,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "New"
+    },
+    {
+        "id": "72",
+        "name": "Stylish Men's Jacket Edition 12",
+        "price": 1428,
+        "image": "https://images.unsplash.com/photo-1582552938357-32b906df40cb",
+        "category": "jackets",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jackets designed for everyday comfort and modern style. Edition 12 brings a unique touch to your wardrobe.",
+        "rating": 4.6,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "Sale"
+    },
+    {
+        "id": "73",
+        "name": "Stylish Men's Jacket Edition 13",
+        "price": 619,
+        "image": "https://images.unsplash.com/photo-1582552938357-32b906df40cb",
+        "category": "jackets",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jackets designed for everyday comfort and modern style. Edition 13 brings a unique touch to your wardrobe.",
+        "rating": 4.5,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "New"
+    },
+    {
+        "id": "74",
+        "name": "Stylish Men's Jacket Edition 14",
+        "price": 962,
+        "image": "https://images.unsplash.com/photo-1582552938357-32b906df40cb",
+        "category": "jackets",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jackets designed for everyday comfort and modern style. Edition 14 brings a unique touch to your wardrobe.",
+        "rating": 4.4,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "New"
+    },
+    {
+        "id": "75",
+        "name": "Stylish Men's Jacket Edition 15",
+        "price": 731,
+        "image": "https://images.unsplash.com/photo-1582552938357-32b906df40cb",
+        "category": "jackets",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jackets designed for everyday comfort and modern style. Edition 15 brings a unique touch to your wardrobe.",
+        "rating": 4.8,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "76",
+        "name": "Stylish Men's Jacket Edition 16",
+        "price": 755,
+        "image": "https://images.unsplash.com/photo-1582552938357-32b906df40cb",
+        "category": "jackets",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jackets designed for everyday comfort and modern style. Edition 16 brings a unique touch to your wardrobe.",
+        "rating": 4.5,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "77",
+        "name": "Stylish Men's Jacket Edition 17",
+        "price": 706,
+        "image": "https://images.unsplash.com/photo-1582552938357-32b906df40cb",
+        "category": "jackets",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jackets designed for everyday comfort and modern style. Edition 17 brings a unique touch to your wardrobe.",
+        "rating": 3.9,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "Sale"
+    },
+    {
+        "id": "78",
+        "name": "Stylish Men's Jacket Edition 18",
+        "price": 2434,
+        "image": "https://images.unsplash.com/photo-1582552938357-32b906df40cb",
+        "category": "jackets",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jackets designed for everyday comfort and modern style. Edition 18 brings a unique touch to your wardrobe.",
+        "rating": 4.5,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "79",
+        "name": "Stylish Men's Jacket Edition 19",
+        "price": 2030,
+        "image": "https://images.unsplash.com/photo-1582552938357-32b906df40cb",
+        "category": "jackets",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jackets designed for everyday comfort and modern style. Edition 19 brings a unique touch to your wardrobe.",
+        "rating": 4.5,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": ""
+    },
+    {
+        "id": "80",
+        "name": "Stylish Men's Jacket Edition 20",
+        "price": 2119,
+        "image": "https://images.unsplash.com/photo-1582552938357-32b906df40cb",
+        "category": "jackets",
+        "brand": "NovaCart Exclusive",
+        "description": "High quality jackets designed for everyday comfort and modern style. Edition 20 brings a unique touch to your wardrobe.",
+        "rating": 4.1,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "badge": "Best Seller"
+    }
+]

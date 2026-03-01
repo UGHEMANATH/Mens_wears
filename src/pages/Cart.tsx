@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar"
 import { useCart } from "../context/CartContext"
-import { Trash2, ArrowRight, ShoppingBag, ShieldCheck, Plus, Minus } from "lucide-react"
+import { Trash2, ArrowRight, ShoppingBag, Plus, Minus } from "lucide-react"
 import { Link, useNavigate } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
 
@@ -8,10 +8,7 @@ function Cart() {
   const { cart, removeFromCart, updateQuantity } = useCart()
   const navigate = useNavigate()
 
-  const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0)
-  const shipping = subtotal > 0 && subtotal < 500 ? 50 : 0
-  const tax = Math.round(subtotal * 0.18)
-  const total = subtotal + shipping + tax
+  // Global totals removed here to fix unused lint warnings since the main summary box is gone
 
   return (
     <motion.div
@@ -39,10 +36,10 @@ function Cart() {
             </Link>
           </div>
         ) : (
-          <div className="flex flex-col lg:flex-row gap-8">
+          <div className="max-w-4xl mx-auto">
 
             {/* Cart Items List */}
-            <div className="lg:w-2/3 space-y-4 overflow-hidden">
+            <div className="space-y-4 overflow-hidden">
               <AnimatePresence>
                 {cart.map((item, index) => (
                   <motion.div
@@ -94,12 +91,38 @@ function Cart() {
                           </button>
                         </div>
 
-                        <button
-                          onClick={() => removeFromCart(item.id)}
-                          className="text-rose-400 hover:text-rose-600 hover:bg-rose-50 p-2 rounded-xl flex items-center gap-1 font-semibold text-sm transition-colors"
-                        >
-                          <Trash2 size={16} /> <span className="hidden sm:inline">Remove</span>
-                        </button>
+                        <div className="flex gap-2">
+                          <button
+                            onClick={() => removeFromCart(item.id)}
+                            className="text-rose-400 hover:text-rose-600 hover:bg-rose-50 px-3 py-2 rounded-xl flex items-center gap-1 font-semibold text-sm transition-colors"
+                          >
+                            <Trash2 size={16} /> <span className="hidden sm:inline">Remove</span>
+                          </button>
+                          <button
+                            onClick={() => {
+                              const itemSubtotal = item.price * item.quantity;
+                              const itemShipping = itemSubtotal > 0 && itemSubtotal < 500 ? 50 : 0;
+
+                              // Graded Tax calculation
+                              const taxRate = itemSubtotal < 2500 ? 0.05 : 0.18;
+                              const itemTax = Math.round(itemSubtotal * taxRate);
+
+                              navigate('/checkout', {
+                                state: {
+                                  singleItemCheckout: true,
+                                  cartItems: [item],
+                                  subtotal: itemSubtotal,
+                                  shipping: itemShipping,
+                                  tax: itemTax,
+                                  total: itemSubtotal + itemShipping + itemTax
+                                }
+                              });
+                            }}
+                            className="bg-violet-900 hover:bg-violet-800 text-white px-4 py-2 rounded-xl flex items-center gap-2 font-bold text-sm transition-colors shadow-md shadow-violet-900/20 whitespace-nowrap"
+                          >
+                            Place Order <ArrowRight size={14} />
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </motion.div>
@@ -107,42 +130,7 @@ function Cart() {
               </AnimatePresence>
             </div>
 
-            {/* Order Summary */}
-            <div className="lg:w-1/3">
-              <div className="bg-white rounded-3xl shadow-sm border border-violet-100 p-6 sm:p-8 sticky top-32">
-                <h2 className="text-xl font-bold text-violet-950 mb-6 pb-4 border-b border-violet-100">Order Summary</h2>
 
-                <div className="space-y-4 text-violet-600 text-sm">
-                  <div className="flex justify-between">
-                    <span>Items ({cart.length}):</span>
-                    <span className="font-semibold">₹{subtotal}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Shipping & handling:</span>
-                    <span>{shipping === 0 ? <span className="text-emerald-500 font-bold">Free</span> : `₹${shipping}`}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Tax (18% GST):</span>
-                    <span className="font-semibold">₹{tax}</span>
-                  </div>
-
-                  <div className="border-t border-violet-100 pt-4 mt-4 flex justify-between items-center bg-violet-50 p-4 rounded-2xl">
-                    <span className="text-lg font-bold text-violet-950">Order Total:</span>
-                    <span className="text-2xl font-extrabold text-emerald-600">₹{total}</span>
-                  </div>
-                </div>
-
-                <div className="mt-8">
-                  <button onClick={() => navigate('/checkout')} className="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-4 px-6 rounded-2xl font-bold text-lg shadow-lg shadow-emerald-500/30 flex items-center justify-center gap-2 transition-all duration-300 transform active:scale-[0.98]">
-                    Proceed to Checkout <ArrowRight size={20} />
-                  </button>
-                </div>
-
-                <div className="mt-6 flex items-center justify-center gap-2 text-sm text-violet-400">
-                  <ShieldCheck size={16} /> Secure checkout powered by Stripe
-                </div>
-              </div>
-            </div>
 
           </div>
         )}

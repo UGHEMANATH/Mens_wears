@@ -1,13 +1,13 @@
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import Navbar from "../components/Navbar"
-import { products } from "../data/products"
+import { fetchProductById, fetchProducts } from "../api/productsApi"
+import type { Product } from "../data/products"
 import { useCart } from "../context/CartContext"
+import { useWishlist } from "../context/WishlistContext"
 import { useState, useEffect } from "react"
 import { ShoppingCart, Star, StarHalf, Truck, ShieldCheck, CreditCard, Send, ArrowRight } from "lucide-react"
 import ProductCard from "../components/ProductCard"
 import Skeleton from "../components/Skeleton"
-import { fetchProducts } from "../api/productsApi"
-import { Link } from "react-router-dom"
 
 export interface Review {
     id: string;
@@ -19,8 +19,9 @@ export interface Review {
 
 function ProductDetails() {
     const { id } = useParams()
-    const product = products.find(p => String(p.id) === String(id))
-    const { addToCart } = useCart()
+    const { cart, addToCart, removeFromCart } = useCart()
+    const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist()
+    const [product, setProduct] = useState<Product | null>(null)
     const [selectedSize, setSelectedSize] = useState<string>("")
     const [reviews, setReviews] = useState<Review[]>([])
 
@@ -30,6 +31,7 @@ function ProductDetails() {
 
     // Related Products State
     const [relatedProducts, setRelatedProducts] = useState<any[]>([])
+    const [commonProducts, setCommonProducts] = useState<any[]>([])
     const [isLoading, setIsLoading] = useState(true)
 
     // Scroll to top automatically when ID changes
@@ -40,22 +42,32 @@ function ProductDetails() {
     useEffect(() => {
         setIsLoading(true)
         if (id) {
-            const allReviews = JSON.parse(localStorage.getItem('product_reviews') || '{}')
-            setReviews(allReviews[id] || [])
+            const loadData = async () => {
+                try {
+                    // Fetch Specific Product
+                    const fetchedProduct = await fetchProductById(id)
+                    if (fetchedProduct) {
+                        setProduct(fetchedProduct)
 
-            // Fetch products to simulate recommendations
-            fetchProducts().then(data => {
-                // simple recommendation logic: same category or fallback to all
-                const catProducts = data.filter((p: any) => p.category === product?.category && String(p.id) !== String(id))
-                // slice up to 4 to show in Customers Also Bought
-                setRelatedProducts(catProducts.slice(0, 4))
-                setIsLoading(false)
-            }).catch(err => {
-                console.error(err);
-                setIsLoading(false);
-            })
+                        // Load Mock Local Reviews
+                        const allReviews = JSON.parse(localStorage.getItem('product_reviews') || '{}')
+                        setReviews(allReviews[id] || [])
+
+                        // Fetch Related/Common items concurrently
+                        const data = await fetchProducts()
+                        const catProducts = data.filter((p: any) => p.category === fetchedProduct.category && String(p.id) !== String(id))
+                        setRelatedProducts(catProducts.slice(0, 4))
+                        setCommonProducts(data.slice(8, 12)) // Recommendations
+                    }
+                } catch (err) {
+                    console.error("Failed to load product details", err)
+                } finally {
+                    setIsLoading(false)
+                }
+            }
+            loadData()
         }
-    }, [id, product?.category])
+    }, [id])
 
     const handleAddReview = (e: React.FormEvent) => {
         e.preventDefault()
@@ -80,7 +92,7 @@ function ProductDetails() {
         setMyRating(5)
     }
 
-    if (!product) {
+    if (!product && !isLoading) {
         return (
             <div className="min-h-screen bg-violet-50 dark:bg-slate-900 flex flex-col font-sans transition-colors">
                 <Navbar />
@@ -93,7 +105,7 @@ function ProductDetails() {
 
     const currentAverageRating = reviews.length > 0
         ? reviews.reduce((acc, r) => acc + r.rating, 0) / reviews.length
-        : product.rating || 4.5;
+        : (product?.rating || 4.5);
 
     const reviewCount = reviews.length > 0 ? reviews.length : 128;
 
@@ -117,6 +129,9 @@ function ProductDetails() {
         )
     }
 
+    const inCart = product && cart.some(item => String(item.id) === String(product.id));
+    const inWishlist = product && isInWishlist(product.id);
+
     return (
         <div className="min-h-screen bg-violet-50 dark:bg-slate-900 font-sans transition-colors flex flex-col">
             <Navbar />
@@ -138,34 +153,36 @@ function ProductDetails() {
 
                         {/* Product Image */}
                         <div className="md:w-1/2 p-8 flex items-center justify-center bg-violet-50/50 dark:bg-slate-700/50 border-r border-violet-100 dark:border-slate-700">
-                            <img
-                                src={product.image}
-                                alt={product.name}
-                                className="max-h-[500px] object-contain mix-blend-multiply dark:mix-blend-normal drop-shadow-xl"
-                            />
+                            {product && (
+                                <img
+                                    src={product.image}
+                                    alt={product.name}
+                                    className="max-h-[500px] object-contain mix-blend-multiply dark:mix-blend-normal drop-shadow-xl"
+                                />
+                            )}
                         </div>
 
                         {/* Product Info */}
                         <div className="md:w-1/2 p-8 sm:p-12 flex flex-col">
-                            <span className="text-emerald-500 font-bold uppercase tracking-wider text-sm mb-2">{product.category}</span>
-                            <h1 className="text-3xl sm:text-4xl font-extrabold text-violet-950 dark:text-white mb-4 leading-tight">{product.name}</h1>
+                            <span className="text-emerald-500 font-bold uppercase tracking-wider text-sm mb-2">{product?.category}</span>
+                            <h1 className="text-3xl sm:text-4xl font-extrabold text-violet-950 dark:text-white mb-4 leading-tight">{product?.name}</h1>
 
                             <div className="mb-6 bg-violet-50 dark:bg-slate-700/50 inline-flex p-2 rounded-xl pr-4">
                                 {renderStars(currentAverageRating)}
                             </div>
 
                             <div className="mb-6 flex items-baseline">
-                                <span className="text-4xl font-extrabold text-violet-950 dark:text-white">₹{product.price}</span>
-                                <span className="text-lg text-violet-300 dark:text-slate-500 line-through ml-3">₹{Math.round(product.price * 1.2)}</span>
+                                <span className="text-4xl font-extrabold text-violet-950 dark:text-white">₹{product?.price}</span>
+                                <span className="text-lg text-violet-300 dark:text-slate-500 line-through ml-3">₹{Math.round((product?.price || 0) * 1.2)}</span>
                                 <p className="text-sm text-emerald-500 font-bold ml-4 bg-emerald-50 dark:bg-emerald-500/10 px-2 py-1 rounded">20% OFF</p>
                             </div>
 
                             <p className="text-violet-600 dark:text-slate-300 mb-8 leading-relaxed font-medium">
-                                {product.description || "Premium quality material engineered for modern individuals. Extremely comfortable, highly durable, and styled exactly out of the trends happening across the globe right now."}
+                                {product?.description || "Premium quality material engineered for modern individuals. Extremely comfortable, highly durable, and styled exactly out of the trends happening across the globe right now."}
                             </p>
 
                             {/* Size Selector */}
-                            {product.sizes && (
+                            {product?.sizes && (
                                 <div className="mb-8">
                                     <div className="flex justify-between mb-3 items-end">
                                         <span className="font-bold text-violet-900 dark:text-slate-200">Select Size</span>
@@ -191,13 +208,34 @@ function ProductDetails() {
                             {/* Actions */}
                             <div className="flex flex-col sm:flex-row gap-4 mt-auto pt-8 border-t border-violet-100 dark:border-slate-700">
                                 <button
-                                    onClick={() => addToCart({ id: product.id, name: product.name, price: product.price, image: product.image })}
-                                    className="flex-1 bg-violet-100 dark:bg-slate-700 hover:bg-violet-200 dark:hover:bg-slate-600 text-violet-900 dark:text-white py-4 rounded-2xl font-bold flex items-center justify-center gap-2 transition-colors active:scale-95 shadow-sm"
+                                    onClick={() => {
+                                        if (product) {
+                                            if (inCart) {
+                                                removeFromCart(product.id)
+                                            } else {
+                                                addToCart({ id: product.id, name: product.name, price: product.price, image: product.image })
+                                            }
+                                        }
+                                    }}
+                                    className={`flex-1 py-4 rounded-2xl font-bold flex items-center justify-center gap-2 transition-colors active:scale-95 shadow-sm border border-transparent
+                                        ${inCart ? "bg-rose-500 hover:bg-rose-600 text-white" : "bg-violet-100 dark:bg-slate-700 hover:bg-violet-200 dark:hover:bg-slate-600 text-violet-900 dark:text-white"}`}
                                 >
-                                    <ShoppingCart size={20} /> Add to Cart
+                                    <ShoppingCart size={20} /> {inCart ? "Remove from Cart" : "Add to Cart"}
                                 </button>
-                                <button className="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white py-4 rounded-2xl font-bold transition-all shadow-lg shadow-emerald-500/30 active:scale-95">
-                                    Buy it Now
+                                <button
+                                    onClick={() => {
+                                        if (product) {
+                                            if (inWishlist) {
+                                                removeFromWishlist(product.id)
+                                            } else {
+                                                addToWishlist({ id: product.id, name: product.name, price: product.price, image: product.image })
+                                            }
+                                        }
+                                    }}
+                                    className={`flex-1 py-4 rounded-2xl font-bold transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2
+                                        ${inWishlist ? "bg-white border-2 border-rose-500 text-rose-500 hover:bg-rose-50 shadow-rose-500/10" : "bg-emerald-500 hover:bg-emerald-600 text-white shadow-emerald-500/30"}`}
+                                >
+                                    {inWishlist ? "Remove from Wishlist" : "Buy it Now"}
                                 </button>
                             </div>
 
@@ -288,9 +326,9 @@ function ProductDetails() {
                     <div className="flex justify-between items-end mb-8">
                         <div>
                             <h2 className="text-3xl font-black text-violet-950 dark:text-white mb-2">Customers Also Bought</h2>
-                            <p className="text-violet-500 dark:text-slate-400">Based on your interest in {product.category}</p>
+                            <p className="text-violet-500 dark:text-slate-400">Based on your interest in {product?.category}</p>
                         </div>
-                        <Link to={`/${product.category}`} className="hidden sm:flex text-emerald-500 font-bold flex items-center gap-2 hover:text-emerald-400 transition-colors">
+                        <Link to={`/${product?.category}`} className="hidden sm:flex text-emerald-500 font-bold flex items-center gap-2 hover:text-emerald-400 transition-colors">
                             Explore All <ArrowRight size={16} />
                         </Link>
                     </div>
@@ -326,7 +364,7 @@ function ProductDetails() {
                         {isLoading ? (
                             [1, 2, 3, 4].map(n => <Skeleton key={n} />)
                         ) : (
-                            products.slice(8, 12).map(rec => (
+                            commonProducts.map(rec => (
                                 <ProductCard
                                     key={rec.id}
                                     id={rec.id}

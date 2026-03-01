@@ -13,6 +13,9 @@ import Profile from "./pages/Profile"
 import Orders from "./pages/Orders"
 import Payment from "./pages/Payment"
 import AdminDashboard from "./pages/AdminDashboard"
+import AdminProducts from "./pages/AdminProducts"
+import AdminOrders from "./pages/AdminOrders"
+import AdminUsers from "./pages/AdminUsers"
 import Footer from "./components/Footer"
 import ProtectedRoute from "./components/ProtectedRoute"
 
@@ -51,6 +54,9 @@ function App() {
 
                     {/* Admin Route */}
                     <Route path="/admin" element={<AdminDashboard />} />
+                    <Route path="/admin/products" element={<AdminProducts />} />
+                    <Route path="/admin/orders" element={<AdminOrders />} />
+                    <Route path="/admin/users" element={<AdminUsers />} />
                   </Routes>
                 </div>
                 <Footer />

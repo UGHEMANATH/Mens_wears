@@ -1,25 +1,36 @@
 import { useState } from "react"
 import { useCart } from "../context/CartContext"
+import { useAuth } from "../context/AuthContext"
 import Navbar from "../components/Navbar"
-import { useNavigate, Link } from "react-router-dom"
-import { ShieldCheck, ArrowRight, Truck } from "lucide-react"
+import { useLocation, useNavigate, Link } from "react-router-dom"
+import { ShieldCheck, ArrowRight, Truck, Mail } from "lucide-react"
 
 function Checkout() {
     const { cart } = useCart()
+    const { user } = useAuth()
     const navigate = useNavigate()
+    const location = useLocation()
+
+    const paramState = location.state || {};
+    const isSingleCheckout = paramState.singleItemCheckout === true;
+
+    const checkoutItems = isSingleCheckout ? paramState.cartItems : cart;
+    const subtotal = isSingleCheckout ? paramState.subtotal : cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+    const shipping = isSingleCheckout ? paramState.shipping : (subtotal > 0 && subtotal < 500 ? 50 : 0);
+
+    // Graded Tax Feature based on Subtotal
+    const taxRate = subtotal < 2500 ? 0.05 : 0.18;
+    const tax = isSingleCheckout ? paramState.tax : Math.round(subtotal * taxRate);
+
+    const total = isSingleCheckout ? paramState.total : (subtotal + shipping + tax);
 
     const [formData, setFormData] = useState({
-        name: "",
+        name: user?.name || "",
         phone: "",
         address: "",
         city: "",
         pincode: ""
     })
-
-    const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0)
-    const shipping = subtotal > 0 && subtotal < 500 ? 50 : 0
-    const tax = Math.round(subtotal * 0.18)
-    const total = subtotal + shipping + tax
 
     const [paymentMethod, setPaymentMethod] = useState("Card")
 
@@ -31,8 +42,10 @@ function Checkout() {
         navigate('/payment', {
             state: {
                 total,
-                cartItems: [...cart],
-                orderData: { ...formData, paymentMethod }
+                subtotal,
+                isSingleCheckout,
+                cartItems: checkoutItems,
+                orderData: { ...formData, paymentMethod, email: user?.email }
             }
         })
     }
@@ -62,12 +75,21 @@ function Checkout() {
                             <form id="checkout-form" onSubmit={handleSubmit} className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
+                                        <label className="block text-sm font-semibold text-violet-900 mb-2">Account Email</label>
+                                        <div className="relative">
+                                            <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-emerald-500">
+                                                <Mail size={16} />
+                                            </span>
+                                            <input type="email" value={user?.email || "Guest"} disabled className="w-full bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl pl-10 px-4 py-3 outline-none font-bold cursor-not-allowed" />
+                                        </div>
+                                    </div>
+                                    <div>
                                         <label className="block text-sm font-semibold text-violet-900 mb-2">Full Name</label>
-                                        <input required type="text" name="name" value={formData.name} onChange={handleChange} className="w-full bg-violet-50 border border-violet-200 text-violet-900 rounded-xl px-4 py-3 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all font-medium" placeholder="John Doe" />
+                                        <input required type="text" name="name" value={formData.name} onChange={handleChange} className="w-full bg-violet-50 border border-violet-200 text-violet-900 rounded-xl px-4 py-3 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all font-medium uppercase placeholder:normal-case placeholder:text-violet-300" placeholder="e.g. JOHN DOE" />
                                     </div>
                                     <div>
                                         <label className="block text-sm font-semibold text-violet-900 mb-2">Phone Number</label>
-                                        <input required type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full bg-violet-50 border border-violet-200 text-violet-900 rounded-xl px-4 py-3 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all font-medium" placeholder="+91 9876543210" />
+                                        <input required type="tel" pattern="[0-9]{10}" title="Must be exactly 10 digits" maxLength={10} name="phone" value={formData.phone} onChange={handleChange} className="w-full bg-violet-50 border border-violet-200 text-violet-900 rounded-xl px-4 py-3 outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all font-medium placeholder:text-violet-300" placeholder="10 Digit Number" />
                                     </div>
                                 </div>
 
@@ -127,7 +149,7 @@ function Checkout() {
                             <h2 className="text-xl font-bold text-violet-950 mb-6 pb-4 border-b border-violet-100">Order Summary</h2>
 
                             <div className="space-y-4 mb-6 max-h-64 overflow-y-auto pr-2 custom-scrollbar">
-                                {cart.map(item => (
+                                {checkoutItems.map((item: any) => (
                                     <div key={item.id} className="flex gap-4 items-center">
                                         <img src={item.image} alt={item.name} className="w-16 h-16 object-contain bg-violet-50 rounded-lg p-1" />
                                         <div className="flex-1">
@@ -149,7 +171,7 @@ function Checkout() {
                                     <span>{shipping === 0 ? <span className="text-emerald-500 font-bold">Free</span> : `₹${shipping}`}</span>
                                 </div>
                                 <div className="flex justify-between">
-                                    <span>Tax (18%):</span>
+                                    <span>Tax ({subtotal < 2500 ? '5%' : '18%'} GST):</span>
                                     <span className="font-semibold">₹{tax}</span>
                                 </div>
 
@@ -163,7 +185,7 @@ function Checkout() {
                                 <button
                                     type="submit"
                                     form="checkout-form"
-                                    disabled={cart.length === 0}
+                                    disabled={checkoutItems.length === 0}
                                     className="w-full bg-emerald-500 hover:bg-emerald-600 disabled:bg-emerald-300 text-white py-4 px-6 rounded-2xl font-bold text-lg shadow-lg shadow-emerald-500/30 flex items-center justify-center gap-2 transition-all duration-300 transform active:scale-[0.98]"
                                 >
                                     Proceed to Payment <ArrowRight size={20} />

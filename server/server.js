@@ -1,0 +1,41 @@
+const express = require('express');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const connectDB = require('./config/db');
+const userRoutes = require('./routes/userRoutes');
+const productRoutes = require('./routes/productRoutes');
+const cartRoutes = require('./routes/cartRoutes');
+const orderRoutes = require('./routes/orderRoutes');
+const wishlistRoutes = require('./routes/wishlistRoutes');
+
+// Initialize environment variables mapping to process.env
+dotenv.config();
+
+// Securely connect to MongoDB Atlas cluster
+connectDB();
+
+const app = express();
+
+app.use(cors());
+// Body parsing middleware to parse JSON encoded bodies
+app.use(express.json());
+
+// Main Entry Point routes
+app.get('/', (req, res) => {
+    res.send('NovaCart Auth API is running...');
+});
+
+// Authentication System Routes
+app.use('/api/users', userRoutes);
+
+// Core Data Routes
+app.use('/api/products', productRoutes);
+app.use('/api/cart', cartRoutes);
+app.use('/api/orders', orderRoutes);
+app.use('/api/wishlist', wishlistRoutes);
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+    console.log(`Server dynamically running on port ${PORT}`);
+});

@@ -1,39 +1,36 @@
-import { products as initialProducts, type Product } from "../data/products"
+import axios from 'axios';
+import { type Product } from "../data/products"
 
-// Helper to get products from local storage, seeding them if they don't exist
-const getLocalProducts = (): Product[] => {
-    const stored = localStorage.getItem("admin_products_v2");
-    if (stored) {
-        return JSON.parse(stored);
-    }
-    // Seed initial products to localStorage
-    localStorage.setItem("admin_products_v2", JSON.stringify(initialProducts));
-    return initialProducts;
-}
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
-// Simulated Mock Backend API
+// Simulated Mock Backend API -> Now Real Backend API
 export const fetchProducts = async (): Promise<Product[]> => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            if (Math.random() < 0.05) {
-                reject(new Error("Failed to fetch products from server. Please try again."))
-            } else {
-                resolve(getLocalProducts())
-            }
-        }, 1500) // 1.5s simulated network delay
-    })
+    try {
+        const { data } = await axios.get(`${API_URL}/api/products`);
+        // Map _id from Mongo back to id for frontend compatibility
+        return data.map((product: any) => ({
+            ...product,
+            id: product._id,
+        }));
+    } catch (error) {
+        console.error("Error fetching products", error);
+        return [];
+    }
 }
 
 export const fetchProductById = async (id: string | number): Promise<Product | undefined> => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            const products = getLocalProducts();
-            resolve(products.find(p => String(p.id) === String(id)))
-        }, 800)
-    })
+    try {
+        const { data } = await axios.get(`${API_URL}/api/products/${id}`);
+        data.id = data._id;
+        return data as Product;
+    } catch (error) {
+        console.error("Error fetching product by ID", error);
+        return undefined;
+    }
 }
 
 // Admin Helpers
-export const syncProductsToStorage = (newProducts: Product[]) => {
-    localStorage.setItem("admin_products_v2", JSON.stringify(newProducts));
+export const syncProductsToStorage = async (newProducts: Product[]) => {
+    // Left as mock placeholder for simple usage, but realistically admin logic should hit the POST/PUT /api/products endpoint
+    console.warn("syncProductsToStorage is deprecated. Admin API should be used.");
 }

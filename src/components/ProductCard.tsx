@@ -13,12 +13,13 @@ export interface ProductCardProps {
 }
 
 function ProductCard({ id, name, price, image, badge }: ProductCardProps) {
-  const { addToCart } = useCart()
+  const { cart, addToCart, removeFromCart } = useCart()
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist()
   const [searchParams] = useSearchParams()
   const searchQuery = searchParams.get("search")?.toLowerCase() || ""
 
   const inWishlist = isInWishlist(id)
+  const inCart = cart.some(item => item.id === id || item.id === String(id))
 
   const toggleWishlist = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -100,11 +101,18 @@ function ProductCard({ id, name, price, image, badge }: ProductCardProps) {
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
-            addToCart({ id, name, price, image });
+            if (inCart) {
+              removeFromCart(id);
+            } else {
+              addToCart({ id, name, price, image });
+            }
           }}
-          className="w-full bg-slate-900 dark:bg-emerald-600 hover:bg-orange-500 dark:hover:bg-emerald-500 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors duration-300 shadow-md relative"
+          className={`w-full py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors duration-300 shadow-md relative ${inCart
+              ? "bg-rose-500 hover:bg-rose-600 text-white"
+              : "bg-slate-900 dark:bg-emerald-600 hover:bg-orange-500 dark:hover:bg-emerald-500 text-white"
+            }`}
         >
-          <ShoppingCart size={18} /> Add to Cart
+          <ShoppingCart size={18} /> {inCart ? "Remove from Cart" : "Add to Cart"}
         </motion.button>
       </div>
 
