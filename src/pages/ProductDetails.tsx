@@ -1,11 +1,11 @@
-import { useParams, Link } from "react-router-dom"
+import { useParams, Link, useNavigate } from "react-router-dom"
 import Navbar from "../components/Navbar"
 import { fetchProductById, fetchProducts } from "../api/productsApi"
 import type { Product } from "../data/products"
 import { useCart } from "../context/CartContext"
 import { useWishlist } from "../context/WishlistContext"
 import { useState, useEffect } from "react"
-import { ShoppingCart, Star, StarHalf, Truck, ShieldCheck, CreditCard, Send, ArrowRight } from "lucide-react"
+import { ShoppingCart, Star, StarHalf, Truck, ShieldCheck, CreditCard, Send, ArrowRight, Heart } from "lucide-react"
 import ProductCard from "../components/ProductCard"
 import Skeleton from "../components/Skeleton"
 
@@ -19,6 +19,7 @@ export interface Review {
 
 function ProductDetails() {
     const { id } = useParams()
+    const navigate = useNavigate()
     const { cart, addToCart, removeFromCart } = useCart()
     const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist()
     const [product, setProduct] = useState<Product | null>(null)
@@ -210,6 +211,22 @@ function ProductDetails() {
                                 <button
                                     onClick={() => {
                                         if (product) {
+                                            if (inWishlist) {
+                                                removeFromWishlist(product.id)
+                                            } else {
+                                                addToWishlist({ id: product.id, name: product.name, price: product.price, image: product.image })
+                                            }
+                                        }
+                                    }}
+                                    className={`p-4 rounded-2xl font-bold transition-all shadow-md active:scale-95 flex items-center justify-center border-2 border-violet-100 dark:border-slate-700
+                                        ${inWishlist ? "text-rose-500 bg-rose-50 border-rose-200" : "text-violet-500 dark:text-slate-400 hover:text-rose-500 hover:bg-violet-50 dark:hover:bg-slate-800"}`}
+                                    title={inWishlist ? "Remove from Wishlist" : "Add to Wishlist"}
+                                >
+                                    <Heart size={24} className={inWishlist ? "fill-rose-500" : ""} />
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        if (product) {
                                             if (inCart) {
                                                 removeFromCart(product.id)
                                             } else {
@@ -225,17 +242,28 @@ function ProductDetails() {
                                 <button
                                     onClick={() => {
                                         if (product) {
-                                            if (inWishlist) {
-                                                removeFromWishlist(product.id)
-                                            } else {
-                                                addToWishlist({ id: product.id, name: product.name, price: product.price, image: product.image })
-                                            }
+                                            const itemPrice = product.price;
+                                            const subtotal = itemPrice;
+                                            const shipping = (subtotal > 0 && subtotal < 500) ? 50 : 0;
+                                            const taxRate = subtotal < 2500 ? 0.05 : 0.18;
+                                            const tax = Math.round(subtotal * taxRate);
+                                            const total = subtotal + shipping + tax;
+
+                                            navigate('/checkout', {
+                                                state: {
+                                                    singleItemCheckout: true,
+                                                    cartItems: [{ ...product, quantity: 1 }],
+                                                    subtotal,
+                                                    shipping,
+                                                    tax,
+                                                    total
+                                                }
+                                            });
                                         }
                                     }}
-                                    className={`flex-1 py-4 rounded-2xl font-bold transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2
-                                        ${inWishlist ? "bg-white border-2 border-rose-500 text-rose-500 hover:bg-rose-50 shadow-rose-500/10" : "bg-emerald-500 hover:bg-emerald-600 text-white shadow-emerald-500/30"}`}
+                                    className="flex-1 py-4 rounded-2xl font-bold transition-all shadow-lg active:scale-95 flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white shadow-emerald-500/30"
                                 >
-                                    {inWishlist ? "Remove from Wishlist" : "Buy it Now"}
+                                    Buy it Now
                                 </button>
                             </div>
 
