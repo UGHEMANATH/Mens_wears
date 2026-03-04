@@ -32,5 +32,5 @@ export const fetchProductById = async (id: string | number): Promise<Product | u
 // Admin Helpers
 export const syncProductsToStorage = async (newProducts: Product[]) => {
     // Left as mock placeholder for simple usage, but realistically admin logic should hit the POST/PUT /api/products endpoint
-    console.warn("syncProductsToStorage is deprecated. Admin API should be used.");
+    console.warn(`syncProductsToStorage is deprecated. Admin API should be used. Products count: ${newProducts.length}`);
 }
