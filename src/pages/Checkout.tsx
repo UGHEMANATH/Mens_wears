@@ -32,7 +32,7 @@ function Checkout() {
         pincode: ""
     })
 
-    const [paymentMethod, setPaymentMethod] = useState("Card")
+    const [paymentMethod, setPaymentMethod] = useState("Razorpay (Cards/UPI/NetBanking)")
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -117,7 +117,7 @@ function Checkout() {
                                 <ShieldCheck className="text-emerald-500" /> Payment Method
                             </h2>
                             <div className="space-y-4">
-                                {["Card", "UPI", "Cash on Delivery"].map((method) => (
+                                {["Razorpay (Cards/UPI/NetBanking)", "Cash on Delivery"].map((method) => (
                                     <label key={method} className={`flex items-center gap-4 p-4 border rounded-xl cursor-pointer transition-colors ${paymentMethod === method ? 'border-emerald-500 bg-emerald-50' : 'border-violet-100 hover:border-violet-300'}`}>
                                         <input
                                             type="radio"

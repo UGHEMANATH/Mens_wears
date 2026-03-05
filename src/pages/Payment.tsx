@@ -36,7 +36,6 @@ export default function Payment() {
                     qty: item.quantity
                 }))
 
-                // Construct final payload
                 const finalOrder = {
                     orderItems: orderItemsMapped,
                     shippingAddress: {
@@ -46,23 +45,81 @@ export default function Payment() {
                         country: "Default Country"
                     },
                     paymentMethod: orderData.paymentMethod || "Credit Card",
-                    itemsPrice: total - (total * 0.18) - 50, // rough math reversing for mock subtotal
+                    itemsPrice: total - (total * 0.18) - 50,
                     taxPrice: total * 0.18,
                     shippingPrice: 50,
                     totalPrice: total,
                 }
 
-                // POST to MongoDB Backend
-                await axios.post(`${API_URL}/api/orders`, finalOrder, {
+                // If not Razorpay, directly hit the order creation
+                if (orderData.paymentMethod !== "Razorpay (Cards/UPI/NetBanking)") {
+                    await axios.post(`${API_URL}/api/orders`, finalOrder, {
+                        headers: { Authorization: `Bearer ${user.token}` }
+                    })
+                    setStatus("success")
+                    clearCart()
+                    setTimeout(() => { navigate('/orders') }, 3000)
+                    return;
+                }
+
+                // RAZORPAY FLOW
+                // 1. Get Key
+                const { data: { keyId } } = await axios.get(`${API_URL}/api/payment/config`);
+
+                // 2. Create Order on Server
+                const { data: order } = await axios.post(`${API_URL}/api/payment/razorpay`, { amount: total }, {
                     headers: { Authorization: `Bearer ${user.token}` }
-                })
+                });
 
-                setStatus("success")
-                clearCart() // Will trigger clear both via API and React state internally
-
-                setTimeout(() => {
-                    navigate('/orders')
-                }, 3000)
+                // 3. Load script dynamically
+                const script = document.createElement('script');
+                script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+                script.onload = () => {
+                    const options = {
+                        key: keyId,
+                        amount: order.amount,
+                        currency: order.currency,
+                        name: "Mens Wear Store",
+                        description: "Payment for your order",
+                        order_id: order.id,
+                        handler: async function (_response: any) {
+                            try {
+                                await axios.post(`${API_URL}/api/orders`, finalOrder, {
+                                    headers: { Authorization: `Bearer ${user.token}` }
+                                })
+                                setStatus("success")
+                                clearCart()
+                                setTimeout(() => { navigate('/orders') }, 3000)
+                            } catch (e: any) {
+                                setStatus("error")
+                                setErrorMsg("Failed to save order after payment inside handler.")
+                            }
+                        },
+                        prefill: {
+                            name: orderData.name,
+                            email: orderData.email || user.email,
+                            contact: orderData.phone
+                        },
+                        theme: { color: "#10b981" },
+                        modal: {
+                            ondismiss: function () {
+                                setStatus("error");
+                                setErrorMsg("Payment cancelled by user. Try again.");
+                            }
+                        }
+                    };
+                    const rzp = new (window as any).Razorpay(options);
+                    rzp.on('payment.failed', function (response: any) {
+                        setStatus("error");
+                        setErrorMsg(response.error.description || "Payment failed.");
+                    });
+                    rzp.open();
+                };
+                script.onerror = () => {
+                    setStatus("error");
+                    setErrorMsg("Failed to load Razorpay SDK.");
+                };
+                document.body.appendChild(script);
 
             } catch (error: any) {
                 console.error("Order processing failed", error)
